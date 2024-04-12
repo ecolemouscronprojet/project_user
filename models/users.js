@@ -6,6 +6,19 @@ const userModel = {
 
 
 userModel.save = function(user) {
+    // modification
+    if(user.id) {
+        // trouver l'utilisateur
+        const userDB = userModel.users.find(u => u.id === user.id)
+        // mettre à jour l'utilisateur
+        if (userDB) {
+            userDB.firstname = user.firstname
+            userDB.lastname =  user.lastname
+            return ;
+        }
+    }
+    
+    // création
     user.id = uuidv4()
     userModel.users.push(user)
 }

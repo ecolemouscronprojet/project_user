@@ -1,11 +1,18 @@
 <form action="/user/save" method="post" >
+  <input type="hidden" name="id"
+  value="<%= (typeof(user) !== 'undefined') ? user.id : '' %>"
+  >
   <div class="mb-3">
     <label for="firstname" class="form-label">Prénom</label>
-    <input type="text" class="form-control" id="firstname" name="firstname">
+    <input type="text" 
+    value="<%= (typeof(user) !== 'undefined') ? user.firstname : '' %>"
+    class="form-control" id="firstname" name="firstname">
   </div>
   <div class="mb-3">
     <label for="lastname" class="form-label">Nom</label>
-    <input type="text" class="form-control" id="lastname" name="lastname">
+    <input type="text"
+    value="<%= (typeof(user) !== 'undefined') ? user.lastname : '' %>"
+    class="form-control" id="lastname" name="lastname">
   </div>
   <button type="submit" class="btn btn-primary">Envoyer</button>
 </form>

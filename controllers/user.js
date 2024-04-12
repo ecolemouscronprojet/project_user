@@ -14,6 +14,22 @@ router.get('/register', (req, res) => {
   res.render('user/register')  
 })
 
+router.get('/update', (req, res) => {
+  const { id } = req.query;
+  if(id == null) {
+    return res.redirect('/user')
+  }
+  const user = userModel.users.find(u => u.id === id)
+  
+  if(!user) {
+    return res.redirect('/user')
+  }  
+  
+  res.render('user/register', {
+    user
+  })
+})
+
 
 router.get('/remove', (req, res) => {
   const id = req.query.id
