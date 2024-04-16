@@ -49,4 +49,18 @@ router.post('/save', (req, res) => {
   res.redirect('/user')
 })
 
+
+router.get('/:id/address' , (req, res) => {
+  // const idUser = req.params.id
+  const { id: idUser } = req.params
+
+  const user = userModel.users.find(u => u.id === idUser)
+  
+    if(!user) {
+      return res.status(404).send('Cet utilisateur n\'existe pas ');
+    }
+
+    res.render('user/addresses')
+});
+
 module.exports = router
