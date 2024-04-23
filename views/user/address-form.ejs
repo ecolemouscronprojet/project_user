@@ -1,0 +1,39 @@
+<form action="/user/address/<%= userId %>/save" method="post" >
+  <input type="hidden" name="id"
+  value="<%= (typeof(address) !== 'undefined') ? address.id : '' %>"
+  >
+  <input type="hidden" name="userId"
+  value="<%= (typeof(userId) !== 'undefined') ? userId : '' %>"
+  >
+  <div class="mb-3">
+    <label for="street" class="form-label">Rue</label>
+    <input type="text" 
+    value="<%= (typeof(address) !== 'undefined') ? address.street : '' %>"
+    class="form-control" id="street" name="street">
+  </div>
+  <div class="mb-3">
+    <label for="number" class="form-label">Numéro</label>
+    <input type="text"
+    value="<%= (typeof(address) !== 'undefined') ? address.number : '' %>"
+    class="form-control" id="number" name="number">
+  </div>
+  <div class="mb-3">
+    <label for="city" class="form-label">Ville</label>
+    <input type="text"
+    value="<%= (typeof(address) !== 'undefined') ? address.city : '' %>"
+    class="form-control" id="city" name="city">
+  </div>
+  <div class="mb-3">
+    <label for="zipCode" class="form-label">Code postal</label>
+    <input type="text"
+    value="<%= (typeof(address) !== 'undefined') ? address.zipCode : '' %>"
+    class="form-control" id="zipCode" name="zipCode">
+  </div>
+  <div class="mb-3">
+    <label for="country" class="form-label">Pays</label>
+    <input type="text"
+    value="<%= (typeof(address) !== 'undefined') ? address.country : '' %>"
+    class="form-control" id="country" name="country">
+  </div>
+  <button type="submit" class="btn btn-primary">Envoyer</button>
+</form>

@@ -1,0 +1,35 @@
+<h1>Liste des adresses</h1>
+
+<a href="/user/address/<%= userId %>/add">Ajouter une adresse</a>
+<% if(typeof(addresses) === 'undefined' || addresses.length === 0) { %>
+  <div class="alert alert-secondary" role="alert">
+    cet utilisateur n'a pas d'adresse
+  </div>
+<% } else if(typeof(addresses) !== 'undefined') { %>
+
+  <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Rue</th>
+          <th scope="col">Numero</th>
+          <th scope="col">Pays</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% addresses.forEach((address, index) => { %>
+          <tr>
+            <th scope="row"><%= index+1 %></th>
+            <td><%= address.street %></td>
+            <td><%= address.number %></td>
+            <td><%= address.country %></td>
+            <td>
+              <a href="/user/address/<%= userId %>/remove?id=<%= address.id %>">Supprimer</a>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+  </table>
+
+<% } %>
