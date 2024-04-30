@@ -12,9 +12,11 @@ addressModel.save = function(address) {
         const addressDB = addressModel.addresses.find(u => u.id === address.id)
         // mettre à jour l'utilisateur
         if (addressDB) {
-            // addressDB.firstname = address.firstname
-            // addressDB.lastname =  address.lastname
-            // TODO
+            addressDB.street = address.street
+            addressDB.number = address.number
+            addressDB.city = address.city
+            addressDB.zipCode = address.zipCode
+            addressDB.country = address.country            
             return ;
         }
     }

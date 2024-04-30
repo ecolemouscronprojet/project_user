@@ -35,5 +35,9 @@
     value="<%= (typeof(address) !== 'undefined') ? address.country : '' %>"
     class="form-control" id="country" name="country">
   </div>
+  <a href="/user/address/<%= userId %>" class="btn btn-secondary">
+    <i class="bi bi-x-square-fill"></i> Annuler
+  </a>
   <button type="submit" class="btn btn-primary">Envoyer</button>
 </form>
+

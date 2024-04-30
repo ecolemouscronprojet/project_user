@@ -56,11 +56,11 @@ router.get('/address/:userId', (req, res) => {
   const addresses = addressModel.addresses.filter((address) => {
     return address.userId == userId
   })
-  console.log('addresses', addresses)
-    res.render('user/address-list', {
-      userId,
-      addresses
-    })  
+
+  res.render('user/address-list', {
+    userId,
+    addresses
+  })  
 })
 
 
@@ -69,6 +69,27 @@ router.get('/address/:userId/add', (req, res) => {
 
   res.render('user/address-form', {
       userId
+    })  
+})
+
+router.get('/address/:userId/edit', (req, res) => {
+  const { userId } = req.params;
+  const { id: addressId } = req.query;
+
+  if(!addressId) {
+    res.redirect(`/user/address/${userId}`)
+    return;
+  }
+  const address = addressModel.addresses.find(a => a.id === addressId)
+
+  if(!address){
+    res.redirect(`/user/address/${userId}`)
+    return;
+  }
+  console.log('address', address)
+  res.render('user/address-form', {
+      userId,
+      address
     })  
 })
 
@@ -92,5 +113,6 @@ router.get('/address/:userId/remove', (req, res) => {
 
   res.redirect(`/user/address/${userId}`)
 })
+
 
 module.exports = router
