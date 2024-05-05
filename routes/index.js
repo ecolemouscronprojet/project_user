@@ -12,6 +12,7 @@ router.get('/2', (req, res) => {
 
 // CONTROLLER
 router.use('/user', require('../controllers/user'))
+router.use('/auth', require('../controllers/auth'))
 
 
 
