@@ -4,11 +4,6 @@ const userModel = {
     users: []
 }
 
-setInterval(() => {
-    console.log(userModel.users)
-}, 4000)
-
-
 userModel.save = function(user) {
     // modification
     if(user.id) {
