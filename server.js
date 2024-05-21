@@ -23,8 +23,13 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 const port = 3000
 
+app.use(function(req, res, next) {
+  res.locals.isAuthenticated = !!req.session.userId;
+  next();
+});
 const routes = require('./routes/index')
 app.use('/', routes)
+
 
 app.listen(port, () => {
   console.log(`Application lancée sur le port ${port}`)
