@@ -4,7 +4,6 @@ const userModel = {
     users: []
 }
 
-
 userModel.save = function(user) {
     // modification
     if(user.id) {

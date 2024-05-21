@@ -2,9 +2,9 @@ const express = require('express')
 const router = express.Router()
 const userModel = require('../models/users')
 const addressModel = require('../models/addresses')
+const isAuthenticated = require('./../middleware/is-auth')
 
-
-router.get('/', (req, res) => {
+router.get('/', isAuthenticated, (req, res) => {
   const users = userModel.users
   res.render('user/list', {
     users

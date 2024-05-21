@@ -7,9 +7,12 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <% if (!isAuthenticated) { %>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/user/register">Enregistrement</a>
           </li>
+          <% } %>
+
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/user">Utilisateurs</a>
           </li>
